@@ -1,0 +1,146 @@
+---
+title: A begginers guide to python list comprehenson 
+date: 2019-11-07
+description:  Learn the basics of list comprehension in python, it simplifies creating a list based on certain constraints and serve as the backbone of python
+tags:
+  - Tutorial
+  - Python basics
+banner: ./list-comprehension.png
+---
+
+
+
+Hello Pythonistas, 
+
+Today you’re going to learn about **python list comprehension**, a very powerful feature of python to use when creating a **python List** based on certain **constraints**.
+
+## let’s get started
+
+Imagine you want to create a list of **cubics**  of numbers ranging from *1* to *100*, Generating the list cubic of numbers **without** using *list comprehension* would normally look like this.
+
+*List of  cubics without list comprehension*
+
+```python
+>>> cubics = []
+>>> for number in range(1, 101):
+...     cubic = number**3
+...     cubics.append(cubic)
+... 
+>>> cubics
+[1, 8, 27, 64, 125, 216, 343, 512, 729, 1000, 1331, 1728, 
+ 2197, 2744, 3375, 4096, 4913, 5832, 6859, 8000, 9261, 10648,
+ ......
+]
+```
+
+*List of cubics with list comprehension*
+
+```python
+>>> cubics = [number**3 for number in range(1, 101)]
+>>> print(cubics)
+[
+  1, 8, 27, 64, 125, 216, 343, 512, 729, 1000, 1331, 1728, 2197, 2744,
+ 3375, 4096, 4913, 5832, 6859, 8000, 9261, 10648, 12167, 13824, 15625,
+ ...
+]
+```
+
+As we can see, we did the **same thing** with *list comprehension* but instead of doing it in **4 lines** of code, we did it in just *one*. is it cool?
+
+If you’re a fan of **one-liners** then *list comprehension* should be your friend, it can do **amazing** stuff in just one line.
+
+List comprehension Syntax
+
+```python
+List = [element for element in iterable]
+```
+
+*Cartesian Product using list comprehension*
+
+If A and B are two **non-empty sets**, then their **cartesian** product A × B is the set of all **ordered pairs** of elements from A and B, with **list comprehension** generate a list of all pairs in just one line.
+
+```python
+>>> a = [1 , 3 , 5, 7]
+>>> b = [2, 4, 6, 8]
+>>> product = [(i , j) for i in a for j in b]
+>>> print(product)
+[(1, 2), (1, 4), (1, 6), (1, 8), (3, 2),
+ (3, 4), (3, 6), (3, 8), (5, 2), (5, 4),
+ (5, 6), (5, 8), (7, 2), (7, 4), (7, 6), 
+ (7, 8)
+]
+```
+
+*Conditional blocks within a list comprehension*
+
+Apart from just **iterating** over **sequences**, you can also put *conditional statements* such as **if and else** within *comprehension* logic to select the elements based on certain conditions.
+
+*Even number using list comprehension*
+
+Let’s say we want to make a list of **even numbers** from *203 to 289* using **list comprehension**, it can also be done in **one-line** as shown below;
+
+```python
+>>> even_numbers = [number for number in range(203, 289) if number%2==0]
+>>> print(even_numbers)
+[
+  204, 206, 208, 210, 212, 214, 216, 218, 220, 222, 224, 226, 228, 230,
+ 232, 234, 236, 238, 240, 242, 244, 246, 248, 250, 252, 254, 256, 258,
+ 260, 262, 264, 266, 268, 270, 272, 274, 276, 278, 280, 282, 284, 286,
+ 288
+]
+```
+
+*Filtering iterable using list comprehension*
+
+**ist comprehension** can also be employed to *filter* out a given list based on certain *parameters* for instance let's use to it to *filter* out all candidates name that is above **18**
+
+```python
+>>> candidates = [
+...     ('John', 15), 
+...     ('Silyvia', 34), 
+...     ('Hamis', 17), 
+...     ('Alphonce', 22), 
+...     ('Grace', 27)
+... ]
+
+>>> above_18 = [candidate for candidate in candidates if candidate[1]>=18]
+>>> print(above_18)
+[('Silyvia', 34), ('Alphonce', 22), ('Grace', 27)]
+```
+
+*Loading certain files using list comprehension*
+
+list comprehension can also be used in loading multiple file paths to memory for instance we can use it to load all image paths in our current directory just as shown below;
+
+```python
+>>> import os
+>>> images = [img for img in os.listdir() if img.endswith('.jpg')]
+>>> print(images)
+['AI gallery.jpg']
+```
+
+*Flattening 2D array using list comprehension*
+
+You can also use **list comprehension** to flatten the **2D** array to a single **1D** array by iterating on all elements on a list.
+
+```python
+>>> data =[(1, 2), (3, 4), (5, 6)]
+>>> flattened = [n for in_data in data for n in in_data]
+>>> print(flattened)
+[1, 2, 3, 4, 5, 6]
+```
+
+*Scalar Product using List Comprehension*
+
+**List comprehension** can also be used to find the **scalar** of an *iterable* by *multiplying* by a given number on each element in an *iterable independently as shown below;
+
+```python
+>>> vector = [10, 25, 32]
+>>> vector3 = [n * 3 for n in vector]
+>>> print(vector)
+[10, 25, 32]
+```
+
+The [Original Article](https://kalebujordan.com/python-list-comprehension/) can be found on [kalebujordan.com](https://kalebujordan.com/)
+
+In case of any suggestion or comment, drop it on the comment box and I will get back to you ASAP.
