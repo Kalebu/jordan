@@ -1,0 +1,91 @@
+---
+title: How to download youtube video as audio using python  
+date: 2020-06-02
+description:  A webscraping tutorial on how to download youtube video as audio using Python  
+tags:
+  - Tutorial
+  - Webscraping
+  - Projects 
+---
+
+Hi guys,
+
+In this article, I will show how you can use python to download a youtube video as audio in a matter of few seconds using **youtube-dl** python wrapper.
+
+Instead of using an online extension with accumulated ads like savenet, why not use your python skills to build your own downloader now.
+
+### Requirements
+
+For you to be able to completely follow this tutorial, you're supposed to have [youtube-dl ](https://pypi.org/project/youtube_dl/)installed on your machine.
+
+### Installation
+
+```python
+pip install youtube_dl
+```
+
+### Basics of youtube-dl
+
+[youtube-dl i](https://pypi.org/project/youtube_dl/)s a command-line tool for downloading videos from Youtube and other video sites, it provides a wrapper for python to directly use its functionality within code.
+
+**YouTube-dl** provides a direct way to download the audio from Youtube by specifying the format of output we want for to next command which is downloading.
+
+### Downloading YouTube video as audio
+
+```python
+from youtube_dl import YoutubeDL
+
+audio_downloder = YoutubeDL({'format':'bestaudio'})
+
+audio_downloader.extract_info(link to the video)
+```
+
+That's how youtube-dl really makes our life easier, from the above concept you can build your own **GUI YouTube downloader** using your favorite framework ranging from [Tkinter](https://docs.python.org/3/library/tkinter.html) to [PyQT](https://riverbankcomputing.com/software/pyqt/intro)
+
+Below is a sample command line app that runs an app for downloading YouTube-audio that runs on top youtube-dl, you can twist it the way you want it.
+
+- app.py
+
+```python
+from youtube_dl import YoutubeDL
+
+audio_downloader = YoutubeDL({'format':'bestaudio'})
+
+while True:
+  
+    try:
+      
+      print('Youtube Downloader'.center(40, '_'))
+
+      URL = input('Enter youtube url :  ')
+
+      audio_downloader.extract_info(URL)
+
+    except Exception:
+      
+      print("Couldn\'t download the audio")
+    
+    finally:
+      
+      option = int(input('\n1.download again \n2.Exit\n\nOption here :'))
+      
+      if option!=1:
+        
+            break
+```
+
+When you run the above code it will automatically begin downloading the audio from the YouTube video link you provided If available.
+
+Hope you find this post interesting, don't forget to subscribe to get more tutorials like this.
+
+
+I recommend you to also read this ;
+
+-   [How to track phone number in Python](https://kalebujordan.com/how-to-track-phone-number-in-python/)
+-   [How to extract all links from a website using Python](https://kalebujordan.com/learn-how-to-extract-all-links-from-a-website-in-python/)
+-   [How to remove duplicates on your drive using Python](https://kalebujordan.com/save-your-disk-space-with-python/)
+-   [How to make your own website blocker in Python](https://kalebujordan.com/how-to-build-website-blocker-in-python/)
+-   [How to make your own knowledge-based chatbot in Python](https://kalebujordan.com/build-simple-chatbot-in-pyhon/)
+-   [How to build a realtime barcode reader in Python](https://kalebujordan.com/reading-bar-codes-python/)
+
+In case of any suggestion or comment, drop it in the comment box and I will get back to you ASAP
